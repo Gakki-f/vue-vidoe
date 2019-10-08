@@ -1,5 +1,6 @@
 <template>
   <div class="movie_body">
+	  <Scroll class="scroll">
     <ul>
       <li v-for="item in comingList" :key="item.id">
         <div class="pic_show">
@@ -19,10 +20,12 @@
         <div class="btn_pre">预售</div>
       </li>
     </ul>
+	  </Scroll>
   </div>
 </template>
 
 <script>
+import Scroll from "@/components/scroll/Scroll";
 export default {
   name: "coming",
   data() {
@@ -30,19 +33,25 @@ export default {
       comingList: []
     };
   },
+  components:{
+	  Scroll
+  },
   mounted() {
     this.axios.get("/api/movieComingList?cityId=10").then(res => {
-      console.log(res);
+     
       const msg = res.data.msg;
       if (msg == "ok") {
         this.comingList = res.data.data.comingList;
 	  }
-	  console.log(this.comingList);
+	
     });
   }
 };
 </script>
 <style scoped>
+.scroll{
+	width: 100%;height: 100%;
+}
 .movie_body {
   flex: 1;
   overflow: auto;
