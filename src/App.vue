@@ -11,14 +11,21 @@
     position: fixed;
     left: 0;
     right: 0;
-    top:90px;
+    top:97px;
     bottom: 50px;
 }
 #content .city_body {
     position: fixed;
     left: 0;
     right: 0;
-    top:90px;
+    top:97px;
+    bottom: 50px;
+}
+#content .cinema_body {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:97px;
     bottom: 50px;
 }
 </style>

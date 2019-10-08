@@ -1,5 +1,6 @@
 <template>
   <div class="cinema_body">
+      <Scroll class="scroll">
     <ul>
       <li v-for="item in cinemaList" :key="item.id">
         <div>
@@ -23,10 +24,12 @@
         </div>
       </li>
     </ul>
+      </Scroll>
   </div>
 </template>
 
 <script>
+import Scroll from "@/components/scroll/Scroll";
 export default {
   name: "CiList",
   data() {
@@ -34,14 +37,16 @@ export default {
       cinemaList: []
     };
   },
+  components: {
+      Scroll
+  },
   mounted() {
     this.axios.get("/api/cinemaList?cityId=10").then(res => {
-      console.log(res);
+     
       const msg = res.data.msg;
       if (msg == "ok") {
         this.cinemaList = res.data.data.cinemas;
-      }
-      console.log(this.cinemas);
+      } 
     });
   },
   filters: {
@@ -77,6 +82,10 @@ export default {
 };
 </script>
 <style scoped>
+.scroll{
+    height: 100%;
+    width: 100%;
+}
 #content .cinema_body {
   flex: 1;
   overflow: auto;
