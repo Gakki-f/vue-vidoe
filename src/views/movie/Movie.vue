@@ -35,6 +35,7 @@ export default {
 };
 </script>
 <style scoped>
+#content{ flex:1; overflow:auto; margin-bottom: 50px; position: relative; display: flex; flex-direction:column;}
 #content .movie_menu {
     width: 100%;
     height: 45px;
